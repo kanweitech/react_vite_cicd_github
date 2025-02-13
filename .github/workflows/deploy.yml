@@ -1,6 +1,7 @@
 name: Deploy React + Vite to Github Pages
 
 on:
+ workflow_dispatch:
  push:
   branches:
     - main
@@ -30,7 +31,7 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-      github_token: ${{ secrets.GITHUB_TOKEN }}
+      token: ${{ secrets.GITHUB_TOKEN }}
       publish_dir: ./dist
       publish_branch: gh-pages
       cname: react-vite-github-pages-example.vercel.app
